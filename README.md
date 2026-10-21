@@ -15,6 +15,12 @@ npm run preview   # serve o dist/ em http://localhost:4173
 O `dist/` é estático: dá para publicar em qualquer hospedagem (Netlify, Vercel, servidor próprio).
 Para publicar em um subcaminho, defina `BASE_PATH` no build (ex.: `BASE_PATH=/smoked/ npm run build`).
 
+### Netlify
+
+O `netlify.toml` já traz o comando de build (`npm run build`), a pasta publicada (`dist`), o Node 22
+e o cache dos arquivos. Em app.netlify.com: **Add new project → Import an existing project → GitHub →
+`smoked`** e confirme o deploy. Cada push na `main` publica de novo.
+
 ### GitHub Pages
 
 O workflow `.github/workflows/pages.yml` roda a cada push na `main`: faz o build com

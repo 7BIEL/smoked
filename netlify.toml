@@ -1,0 +1,19 @@
+# Netlify: conecte o repositório em app.netlify.com e cada push na main publica o site.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# CSS, JS e fontes têm hash no nome: podem ficar em cache por um ano.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Fotos mantêm o nome ao serem trocadas pelos originais, então o cache é de um dia.
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
