@@ -10,7 +10,7 @@ export function Hero() {
         <Photo
           foto={{
             arquivo: 'duo-meat',
-            alt: 'Duo Meat Defumado: dois hambúrgueres com queijo derretido no pão brioche',
+            alt: 'Duo Meat Defumado: dois hambúrgueres com queijo derretido no pão brioche X',
           }}
           sizes="(min-width: 60em) 60vw, 100vw"
           prioridade
@@ -19,7 +19,7 @@ export function Hero() {
 
       <div className="hero__conteudo">
         <h1 id="hero-titulo" className="hero__titulo">
-          <span className="hero__casa">Smoked Burger Piracicaba</span>
+          <span className="sr-only">Smoked Burger Piracicaba: </span>
           <span className="hero__frase display">
             <span className="hero__linha">
               <span>Seu próximo</span>
@@ -34,7 +34,7 @@ export function Hero() {
         </h1>
 
         <p className="hero__texto">
-          Pão tigre, brioche, caseirinho ou black. Escolha o seu na hamburgueria do São Dimas, em
+          Pão tigre, brioche, caseirinho ou black. Escolha o seu na Smoked Burger, no São Dimas, em
           Piracicaba.
         </p>
 

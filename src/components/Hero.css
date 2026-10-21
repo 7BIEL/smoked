@@ -43,15 +43,6 @@
   font-weight: inherit;
 }
 
-.hero__casa {
-  margin-bottom: 0.9rem;
-  font-family: var(--font-text);
-  font-size: 0.9375rem;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-  color: var(--brasa);
-}
-
 .hero__frase {
   display: flex;
   flex-direction: column;
@@ -151,7 +142,6 @@
     animation-delay: 0.18s;
   }
 
-  .hero__casa,
   .hero__texto,
   .hero__acoes {
     animation: hero-surgir 0.8s var(--ease-out) 0.35s both;

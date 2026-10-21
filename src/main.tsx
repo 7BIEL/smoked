@@ -5,6 +5,9 @@ import '@fontsource-variable/archivo'
 import './styles/global.css'
 import App from './App'
 
+// Liga as animações de revelação só quando o JS carregou (sem JS, tudo fica visível).
+document.documentElement.classList.add('js')
+
 const raiz = document.getElementById('root')!
 const app = (
   <StrictMode>

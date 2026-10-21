@@ -54,7 +54,7 @@ export function Footer() {
         </ul>
 
         <p className="rodape__legal">
-          © {ano} Smoked Burger Piracicaba. Fotos do cardápio da casa no iFood.
+          © <span suppressHydrationWarning>{ano}</span> Smoked Burger Piracicaba. Fotos do cardápio da casa no iFood.
         </p>
       </div>
     </footer>

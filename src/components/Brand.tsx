@@ -34,7 +34,7 @@ export function Brand() {
         <figure className="marca__foto" data-revelar>
           <div className="grao">
             <Photo
-              foto={{ arquivo: 'pcq', alt: 'Pcq: pão brioche com corte em X, hambúrguer e queijo' }}
+              foto={{ arquivo: 'pcq', alt: 'Pcq: pão brioche, hambúrguer e queijo derretido' }}
               sizes="(min-width: 48em) 34vw, 100vw"
             />
           </div>

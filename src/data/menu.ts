@@ -81,7 +81,7 @@ export const lanches: Lanche[] = [
     pao: 'Pão brioche',
     detalhe: 'Pão, carne e queijo, com hambúrguer de carne Angus de 160 g.',
     preco: 29.99,
-    foto: { arquivo: 'pcq', alt: 'Pcq: pão brioche, hambúrguer e queijo' },
+    foto: { arquivo: 'pcq', alt: 'Pcq: pão brioche, hambúrguer e queijo derretido' },
   },
 ]
 

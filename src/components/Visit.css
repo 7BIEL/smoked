@@ -16,7 +16,7 @@
 }
 
 .visita__titulo {
-  font-size: clamp(3rem, 11vw, 8.75rem);
+  font-size: var(--titulo-secao);
   max-width: 14ch;
 }
 

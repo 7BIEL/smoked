@@ -4,7 +4,7 @@
 }
 
 .galeria__titulo {
-  font-size: clamp(3.25rem, 12vw, 9.5rem);
+  font-size: var(--titulo-secao);
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 

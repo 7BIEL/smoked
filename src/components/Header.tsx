@@ -16,6 +16,7 @@ export function Header() {
   const [aberto, setAberto] = useState(false)
   const botaoRef = useRef<HTMLButtonElement>(null)
   const painelRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const aoRolar = () => setSolido(window.scrollY > 24)
@@ -29,6 +30,13 @@ export function Header() {
     document.body.classList.add('sem-rolagem')
     painelRef.current?.querySelector('a')?.focus()
 
+    // Com o menu aberto, o resto da página sai do alcance do teclado e do leitor de tela.
+    const header = headerRef.current
+    const irmaos = header?.parentElement
+      ? [...header.parentElement.children].filter((el): el is HTMLElement => el !== header)
+      : []
+    irmaos.forEach((el) => (el.inert = true))
+
     const aoTeclar = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setAberto(false)
@@ -41,6 +49,7 @@ export function Header() {
     window.addEventListener('keydown', aoTeclar)
     window.addEventListener('resize', aoRedimensionar)
     return () => {
+      irmaos.forEach((el) => (el.inert = false))
       document.body.classList.remove('sem-rolagem')
       window.removeEventListener('keydown', aoTeclar)
       window.removeEventListener('resize', aoRedimensionar)
@@ -50,7 +59,7 @@ export function Header() {
   const fechar = () => setAberto(false)
 
   return (
-    <header className="header" data-solido={solido || aberto} data-aberto={aberto}>
+    <header ref={headerRef} className="header" data-solido={solido || aberto} data-aberto={aberto}>
       <div className="header__barra">
         <a className="header__marca" href="#inicio" onClick={fechar}>
           <Wordmark />
