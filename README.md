@@ -12,9 +12,16 @@ npm run build     # gera a versão de produção em dist/
 npm run preview   # serve o dist/ em http://localhost:4173
 ```
 
-O `dist/` é estático: dá para publicar em qualquer hospedagem (Netlify, Vercel, GitHub Pages, servidor próprio).
-Se for publicar em um subcaminho (ex.: `usuario.github.io/smoked/`), ajuste `base` no `vite.config.ts`
-e os caminhos `/img/...` e `/og-image.jpg` do `index.html`.
+O `dist/` é estático: dá para publicar em qualquer hospedagem (Netlify, Vercel, servidor próprio).
+Para publicar em um subcaminho, defina `BASE_PATH` no build (ex.: `BASE_PATH=/smoked/ npm run build`).
+
+### GitHub Pages
+
+O workflow `.github/workflows/pages.yml` roda a cada push na `main`: faz o build com
+`BASE_PATH=/<repositório>/` e publica o `dist/` na branch `gh-pages`.
+
+Configuração única no GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch →
+Branch: `gh-pages` / `(root)` → Save**. O site fica em `https://<usuário>.github.io/<repositório>/`.
 
 ## Onde editar
 
