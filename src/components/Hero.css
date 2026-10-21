@@ -1,0 +1,179 @@
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto;
+  min-height: 100svh;
+  background: var(--carvao);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero__midia {
+  height: 56svh;
+  min-height: 20rem;
+}
+
+.hero__midia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* Funde a foto no fundo para o título poder avançar sobre ela. */
+.hero__midia::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, var(--carvao) 2%, rgb(24 17 12 / 0.55) 30%, transparent 58%);
+  pointer-events: none;
+}
+
+.hero__conteudo {
+  position: relative;
+  z-index: 2;
+  margin-top: -6.5rem;
+  padding: 0 var(--gutter) 2.75rem;
+}
+
+.hero__titulo {
+  display: flex;
+  flex-direction: column;
+  font-weight: inherit;
+}
+
+.hero__casa {
+  margin-bottom: 0.9rem;
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: var(--brasa);
+}
+
+.hero__frase {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(3.5rem, 18vw, 6.5rem);
+  line-height: 0.84;
+}
+
+.hero__linha {
+  display: block;
+  overflow: hidden;
+  /* espaço para acentos (Ó) e descendentes sem cortar a máscara */
+  padding-block: 0.16em 0.04em;
+  margin-block: -0.16em -0.04em;
+}
+
+.hero__linha > span {
+  display: block;
+}
+
+.hero__texto {
+  max-width: 30rem;
+  margin-top: 1.4rem;
+  font-size: 1.0625rem;
+  color: var(--fumaca);
+}
+
+.hero__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 24em) {
+  .hero__acoes .btn {
+    flex: 1 1 100%;
+  }
+}
+
+@media (min-width: 60em) {
+  .hero {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: 1fr;
+    align-items: end;
+    min-height: max(40rem, min(100svh, 62rem));
+  }
+
+  .hero__midia {
+    grid-column: 6 / -1;
+    grid-row: 1;
+    align-self: stretch;
+    height: auto;
+  }
+
+  .hero__midia img {
+    object-position: 46% 50%;
+  }
+
+  .hero__midia::before {
+    background:
+      linear-gradient(to right, var(--carvao) 0%, rgb(24 17 12 / 0.7) 14%, transparent 42%),
+      linear-gradient(to top, rgb(24 17 12 / 0.65), transparent 30%);
+  }
+
+  .hero__conteudo {
+    grid-column: 1 / 10;
+    grid-row: 1;
+    margin-top: 0;
+    padding: calc(var(--header-h) + 3rem) 0 clamp(3rem, 9vh, 6.5rem)
+      max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  }
+
+  .hero__frase {
+    font-size: clamp(6rem, 11.2vw, 11.5rem);
+  }
+
+  .hero__texto {
+    font-size: 1.1875rem;
+  }
+}
+
+/* Abertura: o título sobe linha a linha e a foto assenta. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__midia img {
+    animation: hero-foto 1.4s var(--ease-out) both;
+  }
+
+  .hero__linha > span {
+    animation: hero-linha 0.9s var(--ease-out) both;
+  }
+
+  .hero__linha:nth-child(2) > span {
+    animation-delay: 0.09s;
+  }
+
+  .hero__linha:nth-child(3) > span {
+    animation-delay: 0.18s;
+  }
+
+  .hero__casa,
+  .hero__texto,
+  .hero__acoes {
+    animation: hero-surgir 0.8s var(--ease-out) 0.35s both;
+  }
+}
+
+@keyframes hero-foto {
+  from {
+    opacity: 0.35;
+    transform: scale(1.07);
+  }
+}
+
+@keyframes hero-linha {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes hero-surgir {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+}

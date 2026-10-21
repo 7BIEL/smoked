@@ -1,0 +1,204 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+}
+
+/*
+ * Fundo da barra num pseudo-elemento: backdrop-filter no próprio header
+ * prenderia o painel fixo do menu do celular dentro da barra.
+ */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--header-h);
+  background: rgb(24 17 12 / 0.94);
+  box-shadow: 0 1px 0 rgb(244 237 226 / 0.08);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.header[data-solido='true']::before {
+  opacity: 1;
+}
+
+.header__barra {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: var(--max);
+  height: var(--header-h);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.header__marca {
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.wordmark__nome {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.wordmark__cidade {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--fumaca);
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__nav ul {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.header__nav a {
+  display: block;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9375rem;
+  font-weight: 550;
+  text-decoration: none;
+  color: var(--papel);
+  opacity: 0.86;
+  transition: opacity 0.2s ease;
+}
+
+.header__nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.35em;
+}
+
+.header__cta {
+  display: none;
+  min-height: 2.75rem;
+  padding-block: 0.7rem;
+}
+
+.header__alternar {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-right: -0.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--papel);
+  cursor: pointer;
+}
+
+.header__barras,
+.header__barras::before,
+.header__barras::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+  transition:
+    transform 0.3s var(--ease-out),
+    opacity 0.2s ease;
+}
+
+.header__barras {
+  position: relative;
+}
+
+.header__barras::before,
+.header__barras::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.header__barras::before {
+  transform: translateY(-7px);
+}
+
+.header__barras::after {
+  transform: translateY(7px);
+}
+
+.header[data-aberto='true'] .header__barras {
+  background: transparent;
+}
+
+.header[data-aberto='true'] .header__barras::before {
+  transform: rotate(45deg);
+}
+
+.header[data-aberto='true'] .header__barras::after {
+  transform: rotate(-45deg);
+}
+
+/* Menu do celular: painel em tela cheia abaixo da barra. */
+.menu-celular {
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem var(--gutter) 2.5rem;
+  background: var(--carvao);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.75rem);
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s var(--ease-out),
+    visibility 0s linear 0.35s;
+}
+
+.header[data-aberto='true'] .menu-celular {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s var(--ease-out),
+    visibility 0s;
+}
+
+.menu-celular a.display {
+  display: block;
+  padding-block: 0.4rem;
+  font-size: clamp(2.75rem, 13vw, 4.5rem);
+  text-decoration: none;
+}
+
+.menu-celular .btn {
+  width: 100%;
+}
+
+@media (min-width: 60em) {
+  .header__nav,
+  .header__cta {
+    display: flex;
+  }
+
+  .header__alternar,
+  .menu-celular {
+    display: none;
+  }
+}

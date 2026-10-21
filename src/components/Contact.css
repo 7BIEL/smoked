@@ -1,0 +1,111 @@
+.contato {
+  padding-block: var(--section-y);
+  background: var(--carvao);
+}
+
+.contato__grade {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.contato__titulo {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+.contato__lista {
+  display: grid;
+  gap: 1.75rem;
+  align-content: start;
+}
+
+.contato__lista > div {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(244 237 226 / 0.18);
+}
+
+.contato__lista dt {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--fumaca);
+}
+
+.contato__lista dd {
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.contato__lista dd .link {
+  padding-block: 0.25rem;
+}
+
+.mapa {
+  position: relative;
+  min-height: 20rem;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: var(--carvao-2);
+  /* malha discreta: capa do mapa antes de carregar o Google Maps */
+  background-image:
+    linear-gradient(rgb(244 237 226 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(244 237 226 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.mapa__capa {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background: linear-gradient(to top, rgb(36 26 19 / 0.95) 25%, transparent 75%);
+}
+
+.mapa__rua {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.mapa__bairro {
+  margin-bottom: 1rem;
+  color: var(--fumaca);
+}
+
+.mapa__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  border: 0;
+}
+
+@media (min-width: 48em) {
+  .contato__grade {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 3rem;
+  }
+
+  .contato__titulo {
+    grid-column: 1 / -1;
+  }
+
+  .contato__lista {
+    grid-column: 1 / 6;
+  }
+
+  .mapa {
+    grid-column: 7 / -1;
+    min-height: 26rem;
+  }
+
+  .mapa__frame {
+    position: absolute;
+    inset: 0;
+  }
+}

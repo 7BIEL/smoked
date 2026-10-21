@@ -1,0 +1,79 @@
+.rodape {
+  padding-block: 3.5rem 2.5rem;
+  background: var(--carvao);
+  border-top: 1px solid rgb(244 237 226 / 0.12);
+  font-size: 0.9375rem;
+}
+
+.rodape__grade {
+  display: grid;
+  gap: 2rem;
+}
+
+.rodape__marca {
+  justify-self: start;
+  text-decoration: none;
+}
+
+.rodape__nav ul,
+.rodape__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.rodape a {
+  text-decoration: none;
+}
+
+.rodape__nav a,
+.rodape__links a {
+  display: inline-block;
+  padding-block: 0.35rem;
+}
+
+.rodape__nav a:hover,
+.rodape__links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.rodape__endereco {
+  color: var(--fumaca);
+}
+
+.rodape__legal {
+  font-size: 0.8125rem;
+  color: var(--fumaca);
+}
+
+@media (min-width: 60em) {
+  .rodape__grade {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    align-items: start;
+  }
+
+  .rodape__marca {
+    grid-column: 1 / 4;
+  }
+
+  .rodape__nav {
+    grid-column: 4 / 8;
+  }
+
+  .rodape__endereco {
+    grid-column: 8 / 11;
+  }
+
+  .rodape__links {
+    grid-column: 11 / -1;
+    justify-content: flex-end;
+  }
+
+  .rodape__legal {
+    grid-column: 1 / -1;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(244 237 226 / 0.08);
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smoked Burger Piracicaba | Hamburgueria no São Dimas</title>
+    <meta
+      name="description"
+      content="Smoked Burger, hamburgueria em Piracicaba na Avenida Carlos Botelho, 852, São Dimas. Lanches em pão tigre, brioche, caseirinho e black, mini burgers e porções. Peça pelo iFood."
+    />
+    <meta name="theme-color" content="#18110c" />
+    <script>
+      document.documentElement.classList.add('js')
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!--
+      Open Graph. PENDENTE: quando houver domínio definitivo, trocar og:image por URL
+      absoluta (https://dominio/og-image.jpg) e adicionar og:url e <link rel="canonical">.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Smoked Burger Piracicaba" />
+    <meta property="og:title" content="Smoked Burger Piracicaba" />
+    <meta
+      property="og:description"
+      content="Hamburgueria no São Dimas, em Piracicaba. Lanches, mini burgers e porções, com pedidos pelo iFood."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Três mini burgers na caixa da Smoked Burger" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/img/duo-meat-768.webp"
+      imagesrcset="/img/duo-meat-480.webp 480w, /img/duo-meat-768.webp 768w, /img/duo-meat-1072.webp 1072w"
+      imagesizes="(min-width: 60em) 60vw, 100vw"
+      fetchpriority="high"
+    />
+
+    <!-- Dados estruturados apenas com informações verificadas (sem telefone, horário ou avaliações). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Smoked Burger Piracicaba",
+        "servesCuisine": "Hambúrguer",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida Carlos Botelho, 852",
+          "addressLocality": "Piracicaba",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "hasMenu": "https://www.ifood.com.br/delivery/piracicaba-sp/smoked-burger-piracicaba-sao-dimas/45ef6495-fe91-4c11-8b4a-9b3bca9dad78",
+        "image": "/og-image.jpg"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: sans-serif">
+        Smoked Burger Piracicaba: Avenida Carlos Botelho, 852, São Dimas, Piracicaba - SP. Cardápio e
+        pedidos no
+        <a href="https://www.ifood.com.br/delivery/piracicaba-sp/smoked-burger-piracicaba-sao-dimas/45ef6495-fe91-4c11-8b4a-9b3bca9dad78">iFood</a>.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

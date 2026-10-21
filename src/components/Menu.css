@@ -1,0 +1,303 @@
+/* Cardápio sobre kraft: o mesmo papel das caixas da casa. */
+.cardapio {
+  padding-block: var(--section-y);
+  background: var(--kraft);
+  color: var(--tinta);
+  color-scheme: light;
+}
+
+.cardapio :focus-visible {
+  outline-color: var(--tinta);
+}
+
+.cardapio__cabeca {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.cardapio__titulo {
+  font-size: clamp(3.25rem, 12vw, 9.5rem);
+}
+
+.cardapio__intro {
+  max-width: 28rem;
+  font-size: 1.125rem;
+  color: var(--tinta-2);
+}
+
+/* Grade editorial dos lanches */
+.pratos {
+  display: grid;
+  gap: 3rem 1.5rem;
+}
+
+.prato__midia {
+  border-radius: 3px;
+  background: var(--tinta);
+}
+
+.prato__midia img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.prato--largo .prato__midia img {
+  aspect-ratio: 5 / 4;
+}
+
+.prato--alto .prato__midia img {
+  aspect-ratio: 4 / 5;
+}
+
+.prato:hover .prato__midia img {
+  transform: scale(1.035);
+}
+
+.prato__corpo {
+  display: grid;
+  justify-items: start;
+  margin-top: 1rem;
+}
+
+/* Nome e preço lado a lado; o preço desce de linha quando falta espaço. */
+.prato__topo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  width: 100%;
+}
+
+.prato__nome {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 0.92;
+}
+
+.prato__preco {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4.5vw, 2rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.prato__pao {
+  margin-top: 0.5rem;
+  font-weight: 650;
+}
+
+.prato__detalhe {
+  color: var(--tinta-2);
+}
+
+.prato__pedir {
+  margin-top: 0.6rem;
+  padding-block: 0.35rem;
+  font-size: 0.9375rem;
+}
+
+/* Smoked Burger: entra como faixa escura, sem foto nem preço confirmados. */
+.cardapio__extra {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  background: var(--tinta);
+  color: var(--papel);
+  border-radius: 3px;
+}
+
+.cardapio__extra :focus-visible {
+  outline-color: var(--brasa);
+}
+
+.cardapio__extra-nome {
+  font-size: clamp(2.25rem, 7vw, 3.5rem);
+  color: var(--brasa);
+}
+
+/* Quadro de combos e porções, com pontilhado de cardápio */
+.quadro {
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+}
+
+.quadro__titulo {
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  margin-bottom: 1.25rem;
+}
+
+.quadro__lista {
+  border-top: 1.5px solid var(--tinta);
+}
+
+.quadro__item {
+  display: grid;
+  grid-template-columns: auto minmax(1rem, 1fr) auto;
+  align-items: baseline;
+  column-gap: 0.6rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid rgb(28 20 15 / 0.3);
+}
+
+.quadro__nome {
+  font-size: 1.1875rem;
+  font-weight: 650;
+}
+
+.quadro__pontos {
+  border-bottom: 2px dotted rgb(28 20 15 / 0.55);
+  transform: translateY(-0.3em);
+}
+
+.quadro__preco {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.625rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.quadro__a-partir {
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.quadro__descricao {
+  grid-column: 1 / -1;
+  margin-top: 0.2rem;
+  color: var(--tinta-2);
+}
+
+@media (max-width: 30em) {
+  .quadro__item {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .quadro__pontos {
+    display: none;
+  }
+}
+
+.cardapio__rodape {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.cardapio__nota {
+  max-width: 34rem;
+  font-size: 0.9375rem;
+  color: var(--tinta-2);
+}
+
+@media (min-width: 40em) {
+  .pratos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prato--largo,
+  .prato--alto {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 48em) {
+  .cardapio__cabeca {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    align-items: end;
+  }
+
+  .cardapio__titulo {
+    grid-column: 1 / 9;
+  }
+
+  .cardapio__intro {
+    grid-column: 9 / -1;
+  }
+
+  .pratos {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    row-gap: 4.5rem;
+  }
+
+  .prato--quadrado {
+    grid-column: span 4;
+  }
+
+  .pratos > :nth-child(1) {
+    grid-column: 1 / 8;
+  }
+
+  .pratos > :nth-child(2) {
+    grid-column: 8 / -1;
+  }
+
+  .pratos > :nth-child(6) {
+    grid-column: 1 / 6;
+  }
+
+  .pratos > :nth-child(7) {
+    grid-column: 6 / -1;
+  }
+
+  .cardapio__extra {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    align-items: baseline;
+  }
+
+  .cardapio__extra-nome {
+    grid-column: 1 / 6;
+  }
+
+  .cardapio__extra > :last-child {
+    grid-column: 6 / -1;
+  }
+
+  .quadro {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+
+  .quadro__titulo {
+    grid-column: 1 / 5;
+    max-width: 8ch;
+  }
+
+  .quadro__lista {
+    grid-column: 5 / -1;
+  }
+
+  .cardapio__rodape {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    align-items: center;
+  }
+
+  .cardapio__nota {
+    grid-column: 1 / 8;
+  }
+
+  .cardapio__rodape .btn {
+    grid-column: 8 / -1;
+    justify-self: end;
+  }
+}
+
+@media (min-width: 60em) {
+  .cardapio__nota {
+    grid-column: 5 / 10;
+  }
+
+  .cardapio__rodape .btn {
+    grid-column: 10 / -1;
+  }
+}
