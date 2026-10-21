@@ -2,8 +2,8 @@
 Gera as imagens WebP do site (public/img) a partir das fotos do cardápio da casa.
 
 Origem: as fotos vêm do cardápio da Smoked Burger no iFood (capturas enviadas pelo
-cliente, ~270 px). Elas foram recortadas e ampliadas 4x com super-resolução antes
-de passar por este script. Quando a casa enviar os originais em alta resolução,
+cliente, ~270 px). Elas foram recortadas e ampliadas 4x com super-resolução
+(Real-ESRGAN x4plus) antes de passar por este script. Quando a casa enviar os originais em alta resolução,
 basta colocá-los na pasta de entrada com os mesmos nomes e rodar de novo.
 
 Uso:
